@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9841000A1D0F3E5100F7A967 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984100091D0F3E5100F7A967 /* WeatherViewController.swift */; };
+		9841000D1D0F3E5100F7A967 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9841000B1D0F3E5100F7A967 /* Main.storyboard */; };
+		984100101D0F3E5200F7A967 /* WiproWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9841000E1D0F3E5200F7A967 /* WiproWeather.xcdatamodeld */; };
+		984100121D0F3E5200F7A967 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984100111D0F3E5200F7A967 /* Assets.xcassets */; };
+		984100151D0F3E5200F7A967 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984100131D0F3E5200F7A967 /* LaunchScreen.storyboard */; };
+		984100201D0F3E5200F7A967 /* WiproWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841001F1D0F3E5200F7A967 /* WiproWeatherTests.swift */; };
+		9841002B1D0F3E5200F7A967 /* WiproWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841002A1D0F3E5200F7A967 /* WiproWeatherUITests.swift */; };
+		9841004D1D0F3F3E00F7A967 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841003D1D0F3F3E00F7A967 /* NetworkService.swift */; };
+		984100561D0F3F3E00F7A967 /* WeatherDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984100471D0F3F3E00F7A967 /* WeatherDayCellView.swift */; };
+		984100581D0F3F3E00F7A967 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984100491D0F3F3E00F7A967 /* AppDelegate.swift */; };
+		9841005A1D0F528E00F7A967 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984100591D0F528E00F7A967 /* WeatherService.swift */; };
+		9841005E1D0F6C3100F7A967 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841005D1D0F6C3100F7A967 /* WeatherModel.swift */; };
+		984100601D0F6D0A00F7A967 /* WeatherDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841005F1D0F6D0A00F7A967 /* WeatherDay.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9841001C1D0F3E5200F7A967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9841FFFC1D0F3E5100F7A967 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 984100031D0F3E5100F7A967;
+			remoteInfo = WiproWeather;
+		};
+		984100271D0F3E5200F7A967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9841FFFC1D0F3E5100F7A967 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 984100031D0F3E5100F7A967;
+			remoteInfo = WiproWeather;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		984100041D0F3E5100F7A967 /* WiproWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiproWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		984100091D0F3E5100F7A967 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = ../../WeatherViewController.swift; sourceTree = "<group>"; };
+		9841000C1D0F3E5100F7A967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9841000F1D0F3E5200F7A967 /* WiproWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WiproWeather.xcdatamodel; sourceTree = "<group>"; };
+		984100111D0F3E5200F7A967 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		984100141D0F3E5200F7A967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		984100161D0F3E5200F7A967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9841001B1D0F3E5200F7A967 /* WiproWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiproWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9841001F1D0F3E5200F7A967 /* WiproWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiproWeatherTests.swift; sourceTree = "<group>"; };
+		984100211D0F3E5200F7A967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		984100261D0F3E5200F7A967 /* WiproWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiproWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9841002A1D0F3E5200F7A967 /* WiproWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiproWeatherUITests.swift; sourceTree = "<group>"; };
+		9841002C1D0F3E5200F7A967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9841003D1D0F3F3E00F7A967 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		984100471D0F3F3E00F7A967 /* WeatherDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDayCellView.swift; sourceTree = "<group>"; };
+		984100491D0F3F3E00F7A967 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = src/AppDelegate.swift; sourceTree = "<group>"; };
+		984100591D0F528E00F7A967 /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		9841005D1D0F6C3100F7A967 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		9841005F1D0F6D0A00F7A967 /* WeatherDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDay.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		984100011D0F3E5100F7A967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		984100181D0F3E5200F7A967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		984100231D0F3E5200F7A967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		984100051D0F3E5100F7A967 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				984100041D0F3E5100F7A967 /* WiproWeather.app */,
+				9841001B1D0F3E5200F7A967 /* WiproWeatherTests.xctest */,
+				984100261D0F3E5200F7A967 /* WiproWeatherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		984100061D0F3E5100F7A967 /* WiproWeather */ = {
+			isa = PBXGroup;
+			children = (
+				984100381D0F3F3100F7A967 /* src */,
+				9841000B1D0F3E5100F7A967 /* Main.storyboard */,
+				984100111D0F3E5200F7A967 /* Assets.xcassets */,
+				984100131D0F3E5200F7A967 /* LaunchScreen.storyboard */,
+				984100161D0F3E5200F7A967 /* Info.plist */,
+				9841000E1D0F3E5200F7A967 /* WiproWeather.xcdatamodeld */,
+			);
+			path = WiproWeather;
+			sourceTree = "<group>";
+		};
+		9841001E1D0F3E5200F7A967 /* WiproWeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				9841001F1D0F3E5200F7A967 /* WiproWeatherTests.swift */,
+				984100211D0F3E5200F7A967 /* Info.plist */,
+			);
+			path = WiproWeatherTests;
+			sourceTree = "<group>";
+		};
+		984100291D0F3E5200F7A967 /* WiproWeatherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9841002A1D0F3E5200F7A967 /* WiproWeatherUITests.swift */,
+				9841002C1D0F3E5200F7A967 /* Info.plist */,
+			);
+			path = WiproWeatherUITests;
+			sourceTree = "<group>";
+		};
+		984100381D0F3F3100F7A967 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				984100391D0F3F3E00F7A967 /* model */,
+				984100431D0F3F3E00F7A967 /* view */,
+				984100491D0F3F3E00F7A967 /* AppDelegate.swift */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		984100391D0F3F3E00F7A967 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9841003D1D0F3F3E00F7A967 /* NetworkService.swift */,
+				984100591D0F528E00F7A967 /* WeatherService.swift */,
+				9841005D1D0F6C3100F7A967 /* WeatherModel.swift */,
+				9841005F1D0F6D0A00F7A967 /* WeatherDay.swift */,
+			);
+			name = model;
+			path = src/model;
+			sourceTree = "<group>";
+		};
+		984100431D0F3F3E00F7A967 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				984100091D0F3E5100F7A967 /* WeatherViewController.swift */,
+				984100471D0F3F3E00F7A967 /* WeatherDayCellView.swift */,
+			);
+			name = view;
+			path = src/view;
+			sourceTree = "<group>";
+		};
+		9841FFFB1D0F3E5100F7A967 = {
+			isa = PBXGroup;
+			children = (
+				984100061D0F3E5100F7A967 /* WiproWeather */,
+				9841001E1D0F3E5200F7A967 /* WiproWeatherTests */,
+				984100291D0F3E5200F7A967 /* WiproWeatherUITests */,
+				984100051D0F3E5100F7A967 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		984100031D0F3E5100F7A967 /* WiproWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9841002F1D0F3E5200F7A967 /* Build configuration list for PBXNativeTarget "WiproWeather" */;
+			buildPhases = (
+				984100001D0F3E5100F7A967 /* Sources */,
+				984100011D0F3E5100F7A967 /* Frameworks */,
+				984100021D0F3E5100F7A967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WiproWeather;
+			productName = WiproWeather;
+			productReference = 984100041D0F3E5100F7A967 /* WiproWeather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9841001A1D0F3E5200F7A967 /* WiproWeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 984100321D0F3E5200F7A967 /* Build configuration list for PBXNativeTarget "WiproWeatherTests" */;
+			buildPhases = (
+				984100171D0F3E5200F7A967 /* Sources */,
+				984100181D0F3E5200F7A967 /* Frameworks */,
+				984100191D0F3E5200F7A967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9841001D1D0F3E5200F7A967 /* PBXTargetDependency */,
+			);
+			name = WiproWeatherTests;
+			productName = WiproWeatherTests;
+			productReference = 9841001B1D0F3E5200F7A967 /* WiproWeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		984100251D0F3E5200F7A967 /* WiproWeatherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 984100351D0F3E5200F7A967 /* Build configuration list for PBXNativeTarget "WiproWeatherUITests" */;
+			buildPhases = (
+				984100221D0F3E5200F7A967 /* Sources */,
+				984100231D0F3E5200F7A967 /* Frameworks */,
+				984100241D0F3E5200F7A967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				984100281D0F3E5200F7A967 /* PBXTargetDependency */,
+			);
+			name = WiproWeatherUITests;
+			productName = WiproWeatherUITests;
+			productReference = 984100261D0F3E5200F7A967 /* WiproWeatherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9841FFFC1D0F3E5100F7A967 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = bartoszalksnin;
+				TargetAttributes = {
+					984100031D0F3E5100F7A967 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					9841001A1D0F3E5200F7A967 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 984100031D0F3E5100F7A967;
+					};
+					984100251D0F3E5200F7A967 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 984100031D0F3E5100F7A967;
+					};
+				};
+			};
+			buildConfigurationList = 9841FFFF1D0F3E5100F7A967 /* Build configuration list for PBXProject "WiproWeather" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9841FFFB1D0F3E5100F7A967;
+			productRefGroup = 984100051D0F3E5100F7A967 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				984100031D0F3E5100F7A967 /* WiproWeather */,
+				9841001A1D0F3E5200F7A967 /* WiproWeatherTests */,
+				984100251D0F3E5200F7A967 /* WiproWeatherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		984100021D0F3E5100F7A967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				984100151D0F3E5200F7A967 /* LaunchScreen.storyboard in Resources */,
+				984100121D0F3E5200F7A967 /* Assets.xcassets in Resources */,
+				9841000D1D0F3E5100F7A967 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		984100191D0F3E5200F7A967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		984100241D0F3E5200F7A967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		984100001D0F3E5100F7A967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				984100601D0F6D0A00F7A967 /* WeatherDay.swift in Sources */,
+				9841000A1D0F3E5100F7A967 /* WeatherViewController.swift in Sources */,
+				984100101D0F3E5200F7A967 /* WiproWeather.xcdatamodeld in Sources */,
+				984100561D0F3F3E00F7A967 /* WeatherDayCellView.swift in Sources */,
+				9841005A1D0F528E00F7A967 /* WeatherService.swift in Sources */,
+				984100581D0F3F3E00F7A967 /* AppDelegate.swift in Sources */,
+				9841004D1D0F3F3E00F7A967 /* NetworkService.swift in Sources */,
+				9841005E1D0F6C3100F7A967 /* WeatherModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		984100171D0F3E5200F7A967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				984100201D0F3E5200F7A967 /* WiproWeatherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		984100221D0F3E5200F7A967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9841002B1D0F3E5200F7A967 /* WiproWeatherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9841001D1D0F3E5200F7A967 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 984100031D0F3E5100F7A967 /* WiproWeather */;
+			targetProxy = 9841001C1D0F3E5200F7A967 /* PBXContainerItemProxy */;
+		};
+		984100281D0F3E5200F7A967 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 984100031D0F3E5100F7A967 /* WiproWeather */;
+			targetProxy = 984100271D0F3E5200F7A967 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9841000B1D0F3E5100F7A967 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9841000C1D0F3E5100F7A967 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		984100131D0F3E5200F7A967 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				984100141D0F3E5200F7A967 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9841002D1D0F3E5200F7A967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9841002E1D0F3E5200F7A967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		984100301D0F3E5200F7A967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WiproWeather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartoszalksnin.WiproWeather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		984100311D0F3E5200F7A967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WiproWeather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartoszalksnin.WiproWeather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		984100331D0F3E5200F7A967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WiproWeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartoszalksnin.WiproWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WiproWeather.app/WiproWeather";
+			};
+			name = Debug;
+		};
+		984100341D0F3E5200F7A967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WiproWeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartoszalksnin.WiproWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WiproWeather.app/WiproWeather";
+			};
+			name = Release;
+		};
+		984100361D0F3E5200F7A967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WiproWeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartoszalksnin.WiproWeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WiproWeather;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		984100371D0F3E5200F7A967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WiproWeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bartoszalksnin.WiproWeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WiproWeather;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9841002F1D0F3E5200F7A967 /* Build configuration list for PBXNativeTarget "WiproWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				984100301D0F3E5200F7A967 /* Debug */,
+				984100311D0F3E5200F7A967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		984100321D0F3E5200F7A967 /* Build configuration list for PBXNativeTarget "WiproWeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				984100331D0F3E5200F7A967 /* Debug */,
+				984100341D0F3E5200F7A967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		984100351D0F3E5200F7A967 /* Build configuration list for PBXNativeTarget "WiproWeatherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				984100361D0F3E5200F7A967 /* Debug */,
+				984100371D0F3E5200F7A967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9841FFFF1D0F3E5100F7A967 /* Build configuration list for PBXProject "WiproWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9841002D1D0F3E5200F7A967 /* Debug */,
+				9841002E1D0F3E5200F7A967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9841000E1D0F3E5200F7A967 /* WiproWeather.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9841000F1D0F3E5200F7A967 /* WiproWeather.xcdatamodel */,
+			);
+			currentVersion = 9841000F1D0F3E5200F7A967 /* WiproWeather.xcdatamodel */;
+			path = WiproWeather.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9841FFFC1D0F3E5100F7A967 /* Project object */;
+}

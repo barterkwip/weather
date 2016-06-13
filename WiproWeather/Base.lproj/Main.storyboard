@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PLr-eF-Fb9">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="H5o-wf-SZr">
+            <objects>
+                <navigationController id="PLr-eF-Fb9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NBg-0n-Thd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hPO-EL-luo" kind="relationship" relationship="rootViewController" id="xTs-JJ-AD6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ThF-5h-rv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="68"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="QD6-Q0-Pnx">
+            <objects>
+                <tableViewController id="hPO-EL-luo" customClass="WeatherViewController" customModule="WiproWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dtp-4M-cVF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DayCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" id="8Q6-bC-jkO" customClass="WeatherDayCellView" customModule="WiproWeather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Q6-bC-jkO" id="bl7-5W-RxP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeN-El-3Y2">
+                                            <rect key="frame" x="13" y="8" width="574" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eeN-El-3Y2" secondAttribute="trailing" constant="5" id="JiO-ww-Dl7"/>
+                                        <constraint firstItem="eeN-El-3Y2" firstAttribute="top" secondItem="bl7-5W-RxP" secondAttribute="topMargin" id="bPv-3G-VKh"/>
+                                        <constraint firstItem="eeN-El-3Y2" firstAttribute="leading" secondItem="bl7-5W-RxP" secondAttribute="leadingMargin" constant="5" id="ylE-Qt-BZU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <accessibility key="accessibilityConfiguration" identifier=""/>
+                                <connections>
+                                    <outlet property="nameText" destination="eeN-El-3Y2" id="Xpo-zD-QjT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hPO-EL-luo" id="fcP-v4-Ucg"/>
+                            <outlet property="delegate" destination="hPO-EL-luo" id="PT0-7p-kDL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="674-FJ-91P"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XwK-6N-Tkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776" y="68"/>
+        </scene>
+    </scenes>
+</document>
