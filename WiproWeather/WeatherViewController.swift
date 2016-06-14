@@ -10,18 +10,25 @@ import UIKit
 
 class WeatherViewController: UITableViewController {
 
-	private let weather = WeatherService();
+	private let context = Context();
+	private let callbackKey = "WeatherViewControlelr";
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		weather.fetchData() {
-			dispatch_async(dispatch_get_main_queue()) {
-				self.tableView.reloadData()
-			}
-		};
-
+		context.getWeatherModel().addCallback(callbackKey, callback: weatherUpdatedCallback);
 //		self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+	}
+
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		context.getWeatherModel().removeCallback(callbackKey);
+	}
+
+	func weatherUpdatedCallback() {
+		dispatch_async(dispatch_get_main_queue()) {
+			self.tableView.reloadData()
+		}
 	}
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -32,7 +39,7 @@ class WeatherViewController: UITableViewController {
 	}
 
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return weather.getData()?.getForecastCount() ?? 0
+		return context.getWeatherModel().getWeatherDayCount()
 	}
 
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -42,6 +49,15 @@ class WeatherViewController: UITableViewController {
 	}
 
 	func configureCell(cell: WeatherDayCellView, atIndexPath indexPath: NSIndexPath) {
-		cell.nameText!.text = weather.getData()?.getForecast()?.getDescription();
+		let format = NSDateFormatter();
+		format.dateStyle = NSDateFormatterStyle.FullStyle;
+
+		if let weatherDay = context.getWeatherModel().getWeatherDayAt(indexPath.row) {
+			let dateString = format.stringFromDate(weatherDay.date)
+			cell.dateText!.text = dateString;
+			cell.descriptionText!.text = weatherDay.description;
+			cell.maxTemperatureText!.text = String(weatherDay.maxTemperature);
+			cell.minTemperatureText!.text = String(weatherDay.minTemperature);
+		}
 	}
 }

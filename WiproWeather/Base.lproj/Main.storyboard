@@ -3,8 +3,17 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="H5o-wf-SZr">
@@ -23,42 +32,82 @@
             </objects>
             <point key="canvasLocation" x="-16" y="68"/>
         </scene>
-        <!--Weather View Controller-->
+        <!--Wipro Weather-->
         <scene sceneID="QD6-Q0-Pnx">
             <objects>
                 <tableViewController id="hPO-EL-luo" customClass="WeatherViewController" customModule="WiproWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dtp-4M-cVF">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dtp-4M-cVF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DayCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" id="8Q6-bC-jkO" customClass="WeatherDayCellView" customModule="WiproWeather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DayCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" rowHeight="80" id="8Q6-bC-jkO" customClass="WeatherDayCellView" customModule="WiproWeather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Q6-bC-jkO" id="bl7-5W-RxP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeN-El-3Y2">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday, Jun 15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeN-El-3Y2">
                                             <rect key="frame" x="13" y="8" width="574" height="20.5"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clear with periodic clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ic7-PQ-XVc">
+                                            <rect key="frame" x="13" y="30" width="265" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                            <color key="textColor" red="0.48433554292929293" green="0.48433554292929293" blue="0.48433554292929293" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18'C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inq-AH-K47">
+                                            <rect key="frame" x="557" y="8" width="35" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EhP-Zl-abH">
+                                            <rect key="frame" x="461.5" y="8" width="63.5" height="63.5"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="EhP-Zl-abH" secondAttribute="height" multiplier="1:1" id="ACp-kl-oRi"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16'C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uif-3E-Lku">
+                                            <rect key="frame" x="557" y="30" width="35" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                            <color key="textColor" red="0.48433554290000003" green="0.48433554290000003" blue="0.48433554290000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="EhP-Zl-abH" secondAttribute="bottom" id="GOL-yE-C2C"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="eeN-El-3Y2" secondAttribute="trailing" constant="5" id="JiO-ww-Dl7"/>
+                                        <constraint firstItem="Uif-3E-Lku" firstAttribute="top" secondItem="inq-AH-K47" secondAttribute="bottom" constant="1.5" id="KJk-s8-okK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Uif-3E-Lku" secondAttribute="trailing" id="ax4-AA-fwd"/>
                                         <constraint firstItem="eeN-El-3Y2" firstAttribute="top" secondItem="bl7-5W-RxP" secondAttribute="topMargin" id="bPv-3G-VKh"/>
+                                        <constraint firstItem="EhP-Zl-abH" firstAttribute="top" secondItem="bl7-5W-RxP" secondAttribute="topMargin" id="cx2-MJ-ajS"/>
+                                        <constraint firstItem="inq-AH-K47" firstAttribute="leading" secondItem="EhP-Zl-abH" secondAttribute="trailing" constant="32" id="eOn-ff-8d7"/>
+                                        <constraint firstItem="EhP-Zl-abH" firstAttribute="top" secondItem="bl7-5W-RxP" secondAttribute="topMargin" id="ij8-Dy-iw7"/>
+                                        <constraint firstItem="inq-AH-K47" firstAttribute="top" secondItem="bl7-5W-RxP" secondAttribute="topMargin" id="pXv-oS-aWS"/>
+                                        <constraint firstItem="inq-AH-K47" firstAttribute="trailing" secondItem="bl7-5W-RxP" secondAttribute="trailingMargin" id="xK7-Yq-pzO"/>
                                         <constraint firstItem="eeN-El-3Y2" firstAttribute="leading" secondItem="bl7-5W-RxP" secondAttribute="leadingMargin" constant="5" id="ylE-Qt-BZU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration" identifier=""/>
                                 <connections>
-                                    <outlet property="nameText" destination="eeN-El-3Y2" id="Xpo-zD-QjT"/>
+                                    <outlet property="dateText" destination="eeN-El-3Y2" id="xCl-wi-CxT"/>
+                                    <outlet property="descriptionText" destination="Ic7-PQ-XVc" id="Wtw-38-48G"/>
+                                    <outlet property="icon" destination="EhP-Zl-abH" id="KyT-2T-vKN"/>
+                                    <outlet property="maxTemperatureText" destination="inq-AH-K47" id="dCl-7T-pEG"/>
+                                    <outlet property="minTemperatureText" destination="Uif-3E-Lku" id="KMM-to-dvZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,7 +116,7 @@
                             <outlet property="delegate" destination="hPO-EL-luo" id="PT0-7p-kDL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="674-FJ-91P"/>
+                    <navigationItem key="navigationItem" title="Wipro Weather" id="674-FJ-91P"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwK-6N-Tkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

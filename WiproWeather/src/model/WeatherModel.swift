@@ -12,6 +12,7 @@ class WeatherModel {
 
 	let weatherService: WeatherService;
 	private var weatherDays: Array<WeatherDay>
+	private var callbacks: [String: () -> Void] = [:];
 
 	init(weatherService: WeatherService, callback: (() -> Void)? = nil) {
 		self.weatherService = weatherService;
@@ -19,8 +20,18 @@ class WeatherModel {
 
 		weatherService.fetchData() {
 			self.updateModel();
-			callback?();
+			for (_, callback) in self.callbacks {
+				callback();
+			}
 		}
+	}
+
+	func addCallback(key: String, callback: () -> Void) {
+		self.callbacks[key] = callback
+	}
+
+	func removeCallback(key: String) {
+		self.callbacks.removeValueForKey(key)
 	}
 
 	func updateModel() {
@@ -31,8 +42,8 @@ class WeatherModel {
 
 			let calendar = NSCalendar.currentCalendar()
 			let day = calendar.ordinalityOfUnit(.Day, inUnit: .Year, forDate: date)
-			if var points = forecastPointsByDay[day] {
-				points.append(forecastPoint)
+			if forecastPointsByDay[day] != nil {
+				forecastPointsByDay[day]?.append(forecastPoint)
 			}
 			else {
 				forecastPointsByDay[day] = [forecastPoint];
@@ -43,5 +54,16 @@ class WeatherModel {
 			let weather = WeatherDay(weatherPoints: forecastPoints);
 			weatherDays.append(weather);
 		}
+	}
+
+	func getWeatherDayCount() -> Int {
+		return weatherDays.count;
+	}
+
+	func getWeatherDayAt(index: Int) -> WeatherDay? {
+		if (index < weatherDays.count) {
+			return weatherDays[index];
+		}
+		return nil;
 	}
 }

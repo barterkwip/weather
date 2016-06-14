@@ -87,6 +87,7 @@ class WeatherForecastPoint {
 		guard let minTemperature = mainStats["temp_min"] as? Int else { return nil }
 		guard let maxTemperature = mainStats["temp_max"] as? Int else { return nil }
 		guard let humidity = mainStats["humidity"] as? Int else { return nil }
+		print("temp max ", maxTemperature, minTemperature);
 
 		return WeatherStats(min: minTemperature, max: maxTemperature, humidity: humidity);
 	}

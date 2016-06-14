@@ -6,5 +6,9 @@
 import UIKit
 
 class WeatherDayCellView: UITableViewCell {
-	@IBOutlet weak var nameText: UILabel!
+	@IBOutlet weak var dateText: UILabel!
+	@IBOutlet weak var descriptionText: UILabel!
+	@IBOutlet weak var maxTemperatureText: UILabel!
+	@IBOutlet weak var minTemperatureText: UILabel!
+	@IBOutlet weak var icon: UIImageView!
 }
