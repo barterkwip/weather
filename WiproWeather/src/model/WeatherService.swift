@@ -39,6 +39,15 @@ class WeatherStats {
 		self.max = max;
 		self.humidity = humidity;
 	}
+
+	static func FromJson(json: NSDictionary?) -> WeatherStats? {
+		guard let mainStats = json?["main"] as? NSDictionary else { return nil }
+		guard let minTemperature = mainStats["temp_min"] as? Int else { return nil }
+		guard let maxTemperature = mainStats["temp_max"] as? Int else { return nil }
+		guard let humidity = mainStats["humidity"] as? Int else { return nil }
+
+		return WeatherStats(min: minTemperature, max: maxTemperature, humidity: humidity);
+	}
 }
 
 class WeatherForecastPoint {
@@ -63,7 +72,7 @@ class WeatherForecastPoint {
 
 	static func FromJson(json: NSDictionary?) -> WeatherForecastPoint? {
 		guard let weatherConditions = parseWeatherConditions(json) else { return nil };
-		guard let weatherStats = parseWeatherStats(json) else { return nil };
+		guard let weatherStats = WeatherStats.FromJson(json) else { return nil };
 		guard let date = json?["dt"] as? Int else { return nil };
 
 		return WeatherForecastPoint(weatherConditions: weatherConditions, weatherStats: weatherStats, date: date);
@@ -84,15 +93,6 @@ class WeatherForecastPoint {
 		})
 
 		return weatherConditions;
-	}
-
-	static func parseWeatherStats(json: NSDictionary?) -> WeatherStats? {
-		guard let mainStats = json?["main"] as? NSDictionary else { return nil }
-		guard let minTemperature = mainStats["temp_min"] as? Int else { return nil }
-		guard let maxTemperature = mainStats["temp_max"] as? Int else { return nil }
-		guard let humidity = mainStats["humidity"] as? Int else { return nil }
-
-		return WeatherStats(min: minTemperature, max: maxTemperature, humidity: humidity);
 	}
 }
 

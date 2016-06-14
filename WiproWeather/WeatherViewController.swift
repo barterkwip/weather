@@ -17,6 +17,8 @@ class WeatherViewController: UITableViewController {
 		super.viewDidLoad()
 
 		context.getWeatherModel().addCallback(callbackKey, callback: weatherUpdatedCallback);
+
+		tableView.tableFooterView = UIView()
 		self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 	}
 
