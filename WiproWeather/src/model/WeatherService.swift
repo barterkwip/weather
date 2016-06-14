@@ -57,6 +57,10 @@ class WeatherForecastPoint {
 		return weatherConditions[0].description;
 	}
 
+	func getIcon() -> String {
+		return weatherConditions[0].icon;
+	}
+
 	static func FromJson(json: NSDictionary?) -> WeatherForecastPoint? {
 		guard let weatherConditions = parseWeatherConditions(json) else { return nil };
 		guard let weatherStats = parseWeatherStats(json) else { return nil };
@@ -87,7 +91,6 @@ class WeatherForecastPoint {
 		guard let minTemperature = mainStats["temp_min"] as? Int else { return nil }
 		guard let maxTemperature = mainStats["temp_max"] as? Int else { return nil }
 		guard let humidity = mainStats["humidity"] as? Int else { return nil }
-		print("temp max ", maxTemperature, minTemperature);
 
 		return WeatherStats(min: minTemperature, max: maxTemperature, humidity: humidity);
 	}

@@ -16,6 +16,7 @@ class WeatherDay {
 	let date: NSDate;
 	let humidity: Int;
 	let description: String;
+	let icon: String;
 
 	init(weatherPoints: Array<WeatherForecastPoint>) {
 		self.weatherForecastPoints = weatherPoints;
@@ -23,11 +24,9 @@ class WeatherDay {
 
 		var maxTemperature = Int.min;
 		var minTemperature = Int.max;
-		print("temp day ");
 		for weatherPoint in weatherPoints {
 			maxTemperature = max(weatherPoint.weatherStats.max, maxTemperature);
 			minTemperature = min(weatherPoint.weatherStats.min, minTemperature);
-			print("temp max ", maxTemperature, minTemperature);
 			avgHumidity += weatherPoint.weatherStats.humidity;
 		}
 
@@ -36,5 +35,6 @@ class WeatherDay {
 		self.minTemperature = minTemperature;
 		self.date = NSDate(timeIntervalSince1970: NSTimeInterval(weatherPoints[0].date));
 		self.description = weatherPoints[0].getDescription();
+		self.icon = "http://openweathermap.org/img/w/\(weatherPoints[0].getIcon()).png";
 	}
 }

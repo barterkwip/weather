@@ -17,7 +17,7 @@ class WeatherViewController: UITableViewController {
 		super.viewDidLoad()
 
 		context.getWeatherModel().addCallback(callbackKey, callback: weatherUpdatedCallback);
-//		self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+		self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 	}
 
 	override func viewDidDisappear(animated: Bool) {
@@ -56,8 +56,20 @@ class WeatherViewController: UITableViewController {
 			let dateString = format.stringFromDate(weatherDay.date)
 			cell.dateText!.text = dateString;
 			cell.descriptionText!.text = weatherDay.description;
-			cell.maxTemperatureText!.text = String(weatherDay.maxTemperature);
-			cell.minTemperatureText!.text = String(weatherDay.minTemperature);
+			cell.maxTemperatureText!.text = String(weatherDay.maxTemperature) + "\u{00B0}C";
+			cell.minTemperatureText!.text = String(weatherDay.minTemperature) + "\u{00B0}C";
+			downloadImage(weatherDay.icon, imageView: cell.icon!);
+		}
+	}
+
+	func downloadImage(urlString: String, imageView: UIImageView) {
+		if let url = NSURL(string: urlString) {
+			NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+				dispatch_async(dispatch_get_main_queue()) { () -> Void in
+					guard let data = data where error == nil else { return }
+					imageView.image = UIImage(data: data)
+				}
+			}.resume()
 		}
 	}
 }
