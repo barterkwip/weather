@@ -37,7 +37,7 @@ class WeatherDay {
 		self.minTemperature = minTemperature;
 		self.date = NSDate(timeIntervalSince1970: NSTimeInterval(weatherPoints[0].date));
 		self.description = representativeWeatherPoint.getDescription();
-		self.icon = "http://openweathermap.org/img/w/\(representativeWeatherPoint.getIcon()).png";
+		self.icon = representativeWeatherPoint.getIcon();
 	}
 
 	private static func getRepresentativeWeatherPoint(weatherPoints: Array<WeatherForecastPoint>) -> WeatherForecastPoint {

@@ -67,7 +67,7 @@ class WeatherForecastPoint {
 	}
 
 	func getIcon() -> String {
-		return weatherConditions[0].icon;
+		return WeatherService.iconUrl + weatherConditions[0].icon + ".png";
 	}
 
 	static func FromJson(json: NSDictionary?) -> WeatherForecastPoint? {
@@ -121,6 +121,8 @@ class WeatherForecast: BaseDto {
 }
 
 class WeatherService: NetworkService<WeatherForecast> {
+	private static let iconUrl = "http://openweathermap.org/img/w/"
+
 	convenience init() {
 		self.init(methodName: "forecast");
 	}

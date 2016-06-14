@@ -56,6 +56,10 @@ class WeatherModel {
 			let weather = WeatherDay(weatherPoints: forecastPoints);
 			weatherDays.append(weather);
 		}
+
+		weatherDays.sortInPlace() { (weatherDayA, weatherDayB) -> Bool in
+			return weatherDayA.date.compare(weatherDayB.date) == NSComparisonResult.OrderedAscending
+		}
 	}
 
 	func getWeatherDayCount() -> Int {
