@@ -35,8 +35,8 @@ class NetworkService<Dto: BaseDto> {
 		callbacks.removeValueForKey(key)
 	}
 
-	func fetchData(callback: (() -> Void)? = nil) {
-		let path = url + methodName + String(format: "?q=%@&appid=%@&units=metric", location, appId);
+	func fetchData(options: String = "", callback: (() -> Void)? = nil) {
+		let path = url + methodName + "?appid=\(appId)" + options;
 
 		NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: path)!) { data, response, error in
 			if let result = data {

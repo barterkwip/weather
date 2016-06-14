@@ -10,15 +10,17 @@ import Foundation
 
 class WeatherModel {
 
-	let weatherService: WeatherService;
+	private let weatherService: WeatherService;
 	private var weatherDays: Array<WeatherDay>
 	private var callbacks: [String: () -> Void] = [:];
+
+	private let location = "London,uk"
 
 	init(weatherService: WeatherService, callback: (() -> Void)? = nil) {
 		self.weatherService = weatherService;
 		self.weatherDays = Array<WeatherDay>();
 
-		weatherService.fetchData() {
+		weatherService.fetchData("&units=metric&q=\(location)") {
 			self.updateModel();
 			for (_, callback) in self.callbacks {
 				callback();
