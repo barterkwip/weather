@@ -30,11 +30,27 @@ class WeatherDay {
 			avgHumidity += weatherPoint.weatherStats.humidity;
 		}
 
+		let representativeWeatherPoint = WeatherDay.getRepresentativeWeatherPoint(weatherPoints);
+
 		self.humidity = avgHumidity / weatherPoints.count;
 		self.maxTemperature = maxTemperature;
 		self.minTemperature = minTemperature;
 		self.date = NSDate(timeIntervalSince1970: NSTimeInterval(weatherPoints[0].date));
-		self.description = weatherPoints[0].getDescription();
-		self.icon = "http://openweathermap.org/img/w/\(weatherPoints[0].getIcon()).png";
+		self.description = representativeWeatherPoint.getDescription();
+		self.icon = "http://openweathermap.org/img/w/\(representativeWeatherPoint.getIcon()).png";
+	}
+
+	private static func getRepresentativeWeatherPoint(weatherPoints: Array<WeatherForecastPoint>) -> WeatherForecastPoint {
+		for weatherPoint in weatherPoints {
+			// here we would select weather type with highest % during the day, or highest priority (like extream events)
+			// for now just select one of day points
+			let date = NSDate(timeIntervalSince1970: NSTimeInterval(weatherPoint.date));
+			let calendar = NSCalendar.currentCalendar();
+			let hour = calendar.components(.Hour, fromDate: date)
+			if (hour.hour > 12) {
+				return weatherPoint;
+			}
+		}
+		return weatherPoints[0];
 	}
 }

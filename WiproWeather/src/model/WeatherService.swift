@@ -103,17 +103,6 @@ class WeatherForecast: BaseDto {
 		self.forecastPoints = forecastPoints;
 	}
 
-	func getForecast() -> WeatherForecastPoint? {
-		if (forecastPoints.count > 0) {
-			return forecastPoints[0];
-		}
-		return nil;
-	}
-
-	func getForecastCount() -> Int {
-		return forecastPoints.count;
-	}
-
 	static func FromJson(json: NSDictionary?) -> BaseDto? {
 		guard let forecastList = json?["list"] as? NSArray else { return nil }
 		let forecastPoints = forecastList.map({ json -> WeatherForecastPoint? in
