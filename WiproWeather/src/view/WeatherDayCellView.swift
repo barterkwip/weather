@@ -6,16 +6,16 @@
 import UIKit
 
 class WeatherDayCellView: UITableViewCell {
-	@IBOutlet weak var dateText: UILabel!
-	@IBOutlet weak var descriptionText: UILabel!
-	@IBOutlet weak var maxTemperatureText: UILabel!
-	@IBOutlet weak var minTemperatureText: UILabel!
-	@IBOutlet weak var icon: UIImageView!
+	@IBOutlet weak var dateText: UILabel!;
+	@IBOutlet weak var descriptionText: UILabel!;
+	@IBOutlet weak var maxTemperatureText: UILabel!;
+	@IBOutlet weak var minTemperatureText: UILabel!;
+	@IBOutlet weak var icon: UIImageView!;
 
 	func showDate(date: NSDate) {
 		let format = NSDateFormatter();
 		format.dateStyle = NSDateFormatterStyle.FullStyle;
-		let dateString = format.stringFromDate(date)
+		let dateString = format.stringFromDate(date);
 		dateText!.text = dateString;
 	}
 
@@ -38,7 +38,7 @@ class WeatherDayCellView: UITableViewCell {
 			NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
 				dispatch_async(dispatch_get_main_queue()) { () -> Void in
 					guard let data = data where error == nil else { return }
-					self.icon.image = UIImage(data: data)
+					self.icon.image = UIImage(data: data);
 				}
 			}.resume()
 		}
