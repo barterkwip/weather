@@ -12,3 +12,4 @@ Some of elements i would change if i would continue working on the project:
 - error handling currently only prints message to console, it should track errors on backend and communicate problem to user
 - expose more configuration for user (select location, units)
 - add caching/persistance for data and images, move download code from view
+- add tests
