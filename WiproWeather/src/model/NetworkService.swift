@@ -45,12 +45,7 @@ class NetworkService<Dto: BaseDto> {
 	}
 
 	func parseJson(jsonDictionary: NSDictionary) {
-		let dto = Dto.FromJson(jsonDictionary)
-		updateItems(dto as? Dto)
-	}
-
-	func updateItems(data: Dto?) {
-		self.data = data;
+		self.data = Dto.FromJson(jsonDictionary) as? Dto;
 	}
 
 	func getData() -> Dto? {
