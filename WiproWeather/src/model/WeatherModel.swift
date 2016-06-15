@@ -11,38 +11,41 @@ import Foundation
 class WeatherModel {
 
 	private let weatherService: WeatherService;
-	private var weatherDays: Array<WeatherDay>
-	private var callbacks: [String: () -> Void] = [:];
+	private var weatherDays = Array<WeatherDay>();
+	private var dataRefreshCallbacks: [String: () -> Void] = [:];
 
-	private let location = "London,uk"
+	private let location = "London,uk";
 
-	init(weatherService: WeatherService, callback: (() -> Void)? = nil) {
+	init(weatherService: WeatherService) {
 		self.weatherService = weatherService;
-		self.weatherDays = Array<WeatherDay>();
 
 		weatherService.fetchData("&units=metric&q=\(location)") {
 			self.updateModel();
-			for (_, callback) in self.callbacks {
-				callback();
-			}
+			self.notifyCallbacks();
 		}
 	}
 
 	func addCallback(key: String, callback: () -> Void) {
-		self.callbacks[key] = callback
+		self.dataRefreshCallbacks[key] = callback
 	}
 
 	func removeCallback(key: String) {
-		self.callbacks.removeValueForKey(key)
+		self.dataRefreshCallbacks.removeValueForKey(key)
+	}
+
+	func notifyCallbacks() {
+		for (_, callback) in self.dataRefreshCallbacks {
+			callback();
+		}
 	}
 
 	func updateModel() {
 		var forecastPointsByDay = Dictionary<Int, Array<WeatherForecastPoint>>();
 
 		for forecastPoint in weatherService.getData()?.forecastPoints ?? [] {
-			let date = NSDate(timeIntervalSince1970: NSTimeInterval(forecastPoint.date))
+			let date = forecastPoint.date;
 
-			let calendar = NSCalendar.currentCalendar()
+			let calendar = NSCalendar.currentCalendar();
 			let day = calendar.ordinalityOfUnit(.Day, inUnit: .Year, forDate: date)
 			if forecastPointsByDay[day] != nil {
 				forecastPointsByDay[day]?.append(forecastPoint)

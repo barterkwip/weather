@@ -12,31 +12,32 @@ import CoreData
 class WeatherCondition {
 	let id: Int;
 	let description: String;
-	let icon: String;
+	let iconUrl: String;
 
-	init(id: Int, description: String, icon: String) {
+	init(id: Int, description: String, iconUrl: String) {
 		self.id = id;
 		self.description = description;
-		self.icon = icon;
+		self.iconUrl = iconUrl;
 	}
 
 	static func FromJson(json: NSDictionary?) -> WeatherCondition? {
 		guard let id = json?["id"] as? Int else { return nil }
 		guard let description = json?["description"] as? String else { return nil }
 		guard let icon = json?["icon"] as? String else { return nil }
+		let iconUrl = WeatherService.iconUrl + icon + ".png"
 
-		return WeatherCondition(id: id, description: description, icon: icon);
+		return WeatherCondition(id: id, description: description, iconUrl: iconUrl);
 	}
 }
 
 class WeatherStats {
-	let min: Int;
-	let max: Int;
+	let minTemperature: Int;
+	let maxTemperature: Int;
 	let humidity: Int;
 
-	init(min: Int, max: Int, humidity: Int) {
-		self.min = min;
-		self.max = max;
+	init(minTemperature: Int, maxTemperature: Int, humidity: Int) {
+		self.minTemperature = minTemperature;
+		self.maxTemperature = maxTemperature;
 		self.humidity = humidity;
 	}
 
@@ -46,7 +47,7 @@ class WeatherStats {
 		guard let maxTemperature = mainStats["temp_max"] as? Int else { return nil }
 		guard let humidity = mainStats["humidity"] as? Int else { return nil }
 
-		return WeatherStats(min: minTemperature, max: maxTemperature, humidity: humidity);
+		return WeatherStats(minTemperature: minTemperature, maxTemperature: maxTemperature, humidity: humidity);
 	}
 }
 
@@ -54,20 +55,12 @@ class WeatherForecastPoint {
 
 	let weatherConditions: Array<WeatherCondition>;
 	let weatherStats: WeatherStats;
-	let date: Int;
+	let date: NSDate;
 
 	init(weatherConditions: Array<WeatherCondition>, weatherStats: WeatherStats, date: Int) {
 		self.weatherConditions = weatherConditions;
 		self.weatherStats = weatherStats;
-		self.date = date;
-	}
-
-	func getDescription() -> String {
-		return weatherConditions[0].description;
-	}
-
-	func getIcon() -> String {
-		return WeatherService.iconUrl + weatherConditions[0].icon + ".png";
+		self.date = NSDate(timeIntervalSince1970: NSTimeInterval(date));
 	}
 
 	static func FromJson(json: NSDictionary?) -> WeatherForecastPoint? {

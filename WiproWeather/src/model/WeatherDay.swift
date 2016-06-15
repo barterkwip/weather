@@ -16,7 +16,7 @@ class WeatherDay {
 	let date: NSDate;
 	let humidity: Int;
 	let description: String;
-	let icon: String;
+	let iconUrl: String;
 
 	init(weatherPoints: Array<WeatherForecastPoint>) {
 		self.weatherForecastPoints = weatherPoints;
@@ -25,8 +25,8 @@ class WeatherDay {
 		var maxTemperature = Int.min;
 		var minTemperature = Int.max;
 		for weatherPoint in weatherPoints {
-			maxTemperature = max(weatherPoint.weatherStats.max, maxTemperature);
-			minTemperature = min(weatherPoint.weatherStats.min, minTemperature);
+			maxTemperature = max(weatherPoint.weatherStats.maxTemperature, maxTemperature);
+			minTemperature = min(weatherPoint.weatherStats.minTemperature, minTemperature);
 			avgHumidity += weatherPoint.weatherStats.humidity;
 		}
 
@@ -35,16 +35,23 @@ class WeatherDay {
 		self.humidity = avgHumidity / weatherPoints.count;
 		self.maxTemperature = maxTemperature;
 		self.minTemperature = minTemperature;
-		self.date = NSDate(timeIntervalSince1970: NSTimeInterval(weatherPoints[0].date));
-		self.description = representativeWeatherPoint.getDescription();
-		self.icon = representativeWeatherPoint.getIcon();
+		self.date = weatherPoints[0].date;
+		if representativeWeatherPoint.weatherConditions.count > 0 {
+			let weatherCondition = representativeWeatherPoint.weatherConditions[0];
+			self.description = weatherCondition.description;
+			self.iconUrl = weatherCondition.iconUrl;
+		}
+		else {
+			self.description = "";
+			self.iconUrl = "";
+		}
 	}
 
 	private static func getRepresentativeWeatherPoint(weatherPoints: Array<WeatherForecastPoint>) -> WeatherForecastPoint {
 		for weatherPoint in weatherPoints {
 			// here we would select weather type with highest % during the day, or highest priority (like extream events)
 			// for now just select one of day points
-			let date = NSDate(timeIntervalSince1970: NSTimeInterval(weatherPoint.date));
+			let date = weatherPoint.date;
 			let calendar = NSCalendar.currentCalendar();
 			let hour = calendar.components(.Hour, fromDate: date)
 			if (hour.hour > 12) {

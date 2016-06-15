@@ -14,28 +14,16 @@ protocol BaseDto {
 class NetworkService<Dto: BaseDto> {
 
 	private let appId = "1600977d1fd4b8a16dcadf6c428a547b";
-	private let location = "London,uk";
 	private let url = "http://api.openweathermap.org/data/2.5/"
 
 	private let methodName: String;
-
 	private var data: Dto?
-
-	private var callbacks: [String: () -> Void] = [:];
 
 	init(methodName: String) {
 		self.methodName = methodName;
 	}
 
-	func addCallback(key: String, callback: () -> Void) {
-		callbacks[key] = callback
-	}
-
-	func removeCallback(key: String) {
-		callbacks.removeValueForKey(key)
-	}
-
-	func fetchData(options: String = "", callback: (() -> Void)? = nil) {
+	func fetchData(options: String = "", fetchCompleteCallback: (() -> Void)? = nil) {
 		let path = url + methodName + "?appid=\(appId)" + options;
 
 		NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: path)!) { data, response, error in
@@ -47,19 +35,13 @@ class NetworkService<Dto: BaseDto> {
 						return
 					}
 					self.parseJson(jsonArray);
-					callback?();
+					fetchCompleteCallback?();
 				}
 				catch let error as NSError {
 					print("\(error)")
 				}
 			}
 		}.resume()
-	}
-
-	func callRefreshCallbacks() {
-		for (_, value) in callbacks {
-			value()
-		}
 	}
 
 	func parseJson(jsonDictionary: NSDictionary) {
@@ -69,7 +51,6 @@ class NetworkService<Dto: BaseDto> {
 
 	func updateItems(data: Dto?) {
 		self.data = data;
-		self.callRefreshCallbacks();
 	}
 
 	func getData() -> Dto? {

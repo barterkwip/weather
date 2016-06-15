@@ -57,7 +57,7 @@ class WeatherViewController: UITableViewController {
 			cell.showDate(weatherDay.date);
 			cell.showDescription(weatherDay.description);
 			cell.showTemperature(weatherDay.maxTemperature, minTemperature: weatherDay.minTemperature)
-			cell.showIcon(weatherDay.icon)
+			cell.showIcon(weatherDay.iconUrl)
 		}
 	}
 }
